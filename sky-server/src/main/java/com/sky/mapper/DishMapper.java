@@ -13,7 +13,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface DishMapper {
-
     /**
      * 根据分类id查询菜品数量
      * @param categoryId
@@ -29,4 +28,7 @@ public interface DishMapper {
     Dish getById(Long id);
     @Delete("delete from dish where id=#{id}")
     void deleteById(Long id);
+    @AutoFill(value = OperationType.UPDATE)
+    void update(Dish dish);
+
 }
